@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 /* eslint-disable global-require */
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';

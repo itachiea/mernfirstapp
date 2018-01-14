@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 import Post from '../models/post';
 import cuid from 'cuid';
 import slug from 'limax';
@@ -76,5 +77,14 @@ export function deletePost(req, res) {
     post.remove(() => {
       res.status(200).end();
     });
+  });
+}
+
+export function editPost(req, res) {
+  Post.update({ cuid: req.params.cuid }, req.body.post).exec((err, post) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+    res.json({ post });
   });
 }
